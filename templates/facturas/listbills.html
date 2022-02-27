@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+    <title>Facturas anuladas</title>
+{% endblock%}
+
+{% block container %}
+    <div class="container">
+        <div class="row">
+
+            {% for bill in bills %}
+            <div class="col-sm-12 col-md-8 offset-md-2 mt-5 p-0 post-container">
+                <div class="media pt-3 pl-3 pb-1">
+                    <img class="mr-3 rounded-circle" height="35" src="{{ bill.profile.picture.url }}" alt="{{ bill.user.get_full_name }}">
+                    <div class="media-body">
+                        <p style="margin-top: 5px;">{{ bill.user.get_full_name  }}</p>
+                    </div>
+                </div>
+
+                <img style="width: 100%;" src="{{ post.photo.url }}" alt="{{ post.title }}">
+
+                <p class="ml-2 mt-0 mb-2">
+                    <b>{{ bill.billNumber }}</b> - <small>{{ bill.created }}</small>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

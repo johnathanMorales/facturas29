@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+<title>Solicitar anular factura</title>
+{% endblock %}
+
+{% block container %}
+    <br>
+    <br>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Factura" name="billNumber" />
+        </div>
+
+        <div class="input-group">
+            <label class="input-group-text" for="inputGroupSelect01" style="width: 30%">Motivo</label>
+            <select class="form-select" id="inputGroupSelect01" name="reason" style="width: 70%">
+              <option selected>Seleccionar opción</option>
+              <option value="1">No realiza trámite</option>
+              <option value="2">Error en digitación</option>
+              <option value="3">Reemplazada</option>
+            </select>
+        </div>
+
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Observaciones" id="floatingTextarea" name="comment"></textarea>
+            <label for="floatingTextarea">Observaciones</label>
+        </div>
+
+
+        <button class="btn btn-primary btn-block mt-5" type="submit">Sign in!</button>
+
+    </form>
+
+{% endblock %}
