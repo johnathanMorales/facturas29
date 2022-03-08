@@ -14,4 +14,4 @@ class BillForm(forms.ModelForm):
         """Form settings."""
 
         model = factura
-        fields = ('billNumber', 'reason', 'comment')
+        fields = ('billNumber', 'reason', 'comment', 'profile', 'user')

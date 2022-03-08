@@ -8,6 +8,9 @@ class factura (models.Model):
     reason = models.CharField(max_length=50, blank=False)
     comment = models.CharField(max_length=250, blank=False)
     created = models.DateTimeField(auto_now_add=True)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey('users.Profile', on_delete=models.CASCADE)
     
     def __str__(self):
         """Return billnumber."""
